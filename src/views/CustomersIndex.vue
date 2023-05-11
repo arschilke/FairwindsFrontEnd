@@ -4,7 +4,7 @@ import { Customer, request } from "../webApiClient";
 
 const customers = ref<Customer[]>([]);
 
-const url = "http://localhost:3000/customers" ?? "https://my.api.mockaroo.com/customers.json?key=e95894a0";
+const url = "https://my.api.mockaroo.com/customers.json?key=e95894a0" //?? "http://localhost:3000/customers";
 
 function calculateAge(birthday: string) {
   var ageDifMs = Date.now() - Date.parse(birthday);
