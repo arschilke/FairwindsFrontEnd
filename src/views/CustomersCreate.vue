@@ -1,69 +1,44 @@
 <script setup lang="ts">
-/*
 import { ref } from "vue";
-import { Customer } from "../webApiClient";
+import { useRouter } from "vue-router";
+import { Address, Customer, api } from "../webApiClient";
+import AddressForm from "../components/AddressForm.vue";
+const router = useRouter();
+const customer = ref<Customer>(new Customer({ primary_address: new Address() }));
 
+const url = "https://my.api.mockaroo.com/customers.json?key=e95894a0" //?? 
+//const url = "http://localhost:3000/customers";
 
-const customer = ref<Customer>({ joinDate: Date.now });
-
-
-const handleSubmit = () => {
-
-}
-
-function isValidSSN(value: string) {
-  let regex = new RegExp(/^(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4}$/);
-  if (value == null) {
-    return "false";
-  }
-  if (regex.test(value) == true) {
-    return "true";
-  }
-  else {
-    return "false";
+const handleSubmit = async () => {
+  var sucess = await api.postCustomer(url, customer.value);
+  if (sucess) {
+    await router.push({ name: 'CustomersIndex' });
   }
 }
 
-*/
 </script>
 
 <template>
   <div class="container">
     <h1>Create New Customer</h1>
-    <form><!--@submit.prevent="handleSubmit">-->
+    <form @submit.prevent="handleSubmit">
       <label class="form-label">Customer number</label>
-      <input type="number" min="10000" max="99999" class="form-control" />
+      <input type="number" min="10000" max="99999" class="form-control" v-model="customer.customer_number" />
       <label class="form-label">First Name</label>
-      <input class="form-control" type="text" />
+      <input class="form-control" type="text" v-model="customer.first_name" />
       <label class="form-label">Last Name</label>
-      <input class="form-control" type="text" />
+      <input class="form-control" type="text" v-model="customer.last_name" />
       <label class="form-label">Date of Birth</label>
-      <input class="form-control" type="date" />
+      <input class="form-control" type="date" v-model="customer.date_birth" />
       <label class="form-label">SSN</label>
-      <input class="form-control" type="text" />
+      <input class="form-control" type="text" v-model="customer.ssn" />
       <label class="form-label">Email address</label>
-      <input class="form-control" type="email" />
+      <input class="form-control" type="email" v-model="customer.email" />
       <h6>Primary address</h6>
-      <div>
-        <label class="form-label" for="street-address">Street address</label>
-        <input type="text" id="street-address" name="street-address" class="form-control" autocomplete="street-address"
-          required />
-      </div>
-      <div>
-        <label for="postal-code" class="form-label">ZIP or postal code (optional)</label>
-        <input id="postal-code" class="form-control" name="postal-code" autocomplete="postal-code" />
-      </div>
-      <div>
-        <label for="city" class="form-label">City</label>
-        <input required type="text" id="city" class="form-control" name="city" autocomplete="address-level2"
-          enterkeyhint="next" />
-      </div>
-      <div>
-        <label for="country" class="form-label">Country or region</label>
-        <input id="country" name="country" class="form-select" autocomplete="country" required />
-      </div>
+      <AddressForm v-if="customer.primary_address" v-model="customer.primary_address" />
       <label class="form-label">Mobile phone number</label>
-      <input type="phone" class="form-control" />
+      <input type="tel" class="form-control" v-model="customer.mobile_phone_number" />
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </template>
