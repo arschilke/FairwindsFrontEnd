@@ -11,6 +11,8 @@ function calculateAge(birthday: string) {
   var ageDate = new Date(ageDifMs);
   return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
+const lastFour = (value: string | undefined): string | undefined =>
+  value?.slice(-4) ?? "";
 
 onMounted(async () => {
   customers.value = await request<Customer[]>(url);
@@ -37,7 +39,7 @@ onMounted(async () => {
           <td>{{ customer.first_name }}</td>
           <td>{{ customer.last_name }}</td>
           <td>{{ (new Date(customer.date_birth)).toDateString() }}</td>
-          <td>{{ customer.ssn.slice(-4) }}</td>
+          <td>{{ lastFour(customer.ssn) }}</td>
           <td>{{ calculateAge(customer.date_birth) }}</td>
         </tr>
       </tbody>
