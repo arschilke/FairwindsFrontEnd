@@ -42,7 +42,7 @@ onMounted(async () => {
 <template>
   <div class="container">
     <h1>All Customers</h1>
-    <table class="table table-striped table-hover ">
+    <table class="table table-striped table-hover table-responsive">
       <thead>
         <tr>
           <th>Customer number</th>
