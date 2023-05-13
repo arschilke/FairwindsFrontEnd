@@ -7,8 +7,8 @@ import { calculateAge, formatDate, lastFour } from "../helpers";
 
 const customers = ref<Customer[]>([]);
 
-//const url = "https://my.api.mockaroo.com/customers.json?key=e95894a0" //??
-const url = "http://localhost:3000/customers";
+const url = "https://my.api.mockaroo.com/customers.json?key=e95894a0" //??
+//const url = "http://localhost:3000/customers";
 
 const { open, patchOptions } = useModal({
   component: ModalCustomer
