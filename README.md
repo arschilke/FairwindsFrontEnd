@@ -2,6 +2,9 @@
 
 Front End Development Assessment
 
+Thank you to Cindy and those at Fairwinds for considering my application!
+The site is live at: https://arschilke.github.io/FairwindsFrontEnd/
+
 ## FRONT-END DEVELOPMENT ASSESSMENT
 
 This assessment was created to evaluate your front-end development skills, as well as your creativity and attention to detail.
