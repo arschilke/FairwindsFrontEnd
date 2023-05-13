@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { VueFinalModal } from 'vue-final-modal'
 import { Customer } from '../webApiClient'
-import { formatDate, calculateAge, lastFour } from '../helpers'
+import { formatDate, lastFour } from '../helpers'
 
 defineProps<{
     customer?: Customer
