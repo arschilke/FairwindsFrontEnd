@@ -18,7 +18,9 @@ import NavbarThemeButton from './NavbarThemeButton.vue';
           <li class="nav-item">
             <RouterLink class="nav-link" :to="{ name: 'CustomersCreate' }">Create Customer</RouterLink>
           </li>
-          <li class="nav-item">
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
             <NavbarThemeButton />
           </li>
         </ul>

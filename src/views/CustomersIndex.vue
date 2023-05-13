@@ -7,8 +7,7 @@ import { calculateAge, formatDate, lastFour } from "../helpers";
 
 const customers = ref<Customer[]>([]);
 
-const url = "https://my.api.mockaroo.com/customers.json?key=e95894a0" //??
-//const url = "http://localhost:3000/customers";
+const url = "https://my.api.mockaroo.com/customers.json?key=e95894a0"
 
 const { open, patchOptions } = useModal({
   component: ModalCustomer
@@ -30,7 +29,7 @@ onMounted(async () => {
 <template>
   <div class="container">
     <h1>All Customers</h1>
-    <table class="table">
+    <table class="table table-striped table-hover ">
       <thead>
         <tr>
           <th>Customer number</th>
@@ -52,5 +51,6 @@ onMounted(async () => {
         </tr>
       </tbody>
     </table>
+
   </div>
 </template>

@@ -2,19 +2,24 @@
 
 $white: #ffffff;
 
-$theme-colors: (
-  "light": #f7f1db,
-  "dark": #0c131d,
-  "primary": #00d710,
-  "secondary": #30084d,
-  "info": #7f33fa,
-  "success": #00a009,
-  "warning": #f5c100,
-  "danger": #f00048,
-);
+$light: #e3e6e7;
+$dark: #29026b;
+$primary: #d30066;
+$secondary: #5a5556;
+$info: #0eb697;
+$success: #00a675;
+$warning: #d3d100;
+$danger: #e04200;
 
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/variables-dark";
+
+$body-color-dark: color-contrast($body-bg-dark);
+$body-bg-dark: #160139;
+
+$body-secondary-bg-dark: shift-color($dark, 40%);
+$border-color-dark: tint-color($dark, 10%);
+
 
 @import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -54,3 +59,5 @@ $theme-colors: (
 @import "../node_modules/bootstrap/scss/placeholders";
 
 @import "../node_modules/bootstrap/scss/utilities/api";
+
+
